@@ -3,6 +3,8 @@
 
 #include "Work.h"
 #include "Context.h"
+#include "BFS.h"
+#include "DFS.h"
 
 template <typename T>
 void work(T) {
@@ -19,10 +21,10 @@ void work(T) {
 	}
 	Graph<T> g(size);
 	g.enterNodes();
-	//Context<T>* context = new Context<T>(new BFS<T>);
-	//context->doSearch(g);
-	//context->set_strategy(new DFS<T>);
-	//context->doSearch(g);
+	Context<T>* context = new Context<T>(new BFS<T>);
+	context->doSearch(g);
+	context->set_strategy(new DFS<T>);
+	context->doSearch(g);
 	system("pause");
 	delete context;
 	g.deleteGraph();
